@@ -14,6 +14,8 @@ import {
   faBuilding,
   faUserTie,
   faTasks,
+  faAngleUp,
+  faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faQuestionCircle as faQuestionCircleRegular } from "@fortawesome/free-regular-svg-icons";
@@ -31,6 +33,8 @@ library.add(
   faFolder,
   faBuilding,
   faUserTie,
-  faTasks
+  faTasks,
+  faAngleUp,
+  faAngleDown
   // more icons go here
 );

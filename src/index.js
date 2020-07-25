@@ -17,6 +17,10 @@ ReactDOM.render(
           component={PartnerDashboard}
         />
         <PartnerProtectedRoute
+          path="/partner/jobs"
+          component={PartnerDashboard}
+        />
+        <PartnerProtectedRoute
           path="/partner/requests"
           component={() => <h3>requests</h3>}
         />
