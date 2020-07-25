@@ -1,0 +1,26 @@
+$sizes: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 40, 50, 100;
+$directions: "top", "bottom", "left", "right";
+
+@each $size in $sizes {
+  @each $dir in $directions {
+    .m-#{$dir}-#{$size} {
+      margin-#{$dir}: calc(#{$size} * 5px);
+    }
+
+    .p-#{$dir}-#{$size} {
+      padding-#{$dir}: calc(#{$size} * 5px);
+    }
+  }
+
+  .m-#{$size} {
+    @each $dir in $directions {
+      margin-#{$dir}: calc(#{$size} * 5px);
+    }
+  }
+
+  .p-#{$size} {
+    @each $dir in $directions {
+      padding-#{$dir}: calc(#{$size} * 5px);
+    }
+  }
+}
