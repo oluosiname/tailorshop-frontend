@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./dashboard.scss";
 
-const Dashboard = ({ location }) => {
+import Input from "../../input/Input.js";
+import "../dashboard.scss";
+import "./clients.scss";
+
+const Clients = ({ location }) => {
   const [expanded, setExpanded] = useState("sss");
   const toggle = (toExpand) => {
     if (expanded === toExpand) {
@@ -138,7 +141,7 @@ const Dashboard = ({ location }) => {
             className="p-right-2 p-left-2 p-bottom-5 m-bottom-5"
             style={{ border: "2px solid red" }}
           >
-            sss
+            <Input label={"Email"} placeholder={"Enter email"}></Input>
           </div>
           <div
             style={{
@@ -153,4 +156,4 @@ const Dashboard = ({ location }) => {
   );
 };
 
-export default Dashboard;
+export default Clients;

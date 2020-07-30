@@ -12,6 +12,7 @@ header {
   position: relative;
   padding-top: 1em;
   padding-bottom: 1em;
+  margin-bottom: 2em;
   z-index: 51;
 
   div {
@@ -23,7 +24,7 @@ header {
 main {
   display: flex;
   margin: auto;
-  margin-top: 5em;
+  margin-top: 2em;
   width: 75%;
 }
 
@@ -31,7 +32,7 @@ main {
   color: #fff;
   flex-basis: 20%;
   font-size: 14px;
-  margin-right: 5em;
+  margin-right: 2em;
 
   &__container {
     background-color: #1c3faa;
@@ -114,6 +115,5 @@ main {
 }
 
 .content {
-  border: 1px solid purple;
   flex-basis: 80%;
 }

@@ -7,6 +7,7 @@ import "./fontawesome";
 import * as serviceWorker from "./serviceWorker";
 import PartnerProtectedRoute from "./PartnerProtectedRoute";
 import PartnerDashboard from "./components/partner/Dashboard";
+import Clients from "./components/partner/clients/Clients";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,10 +21,7 @@ ReactDOM.render(
           path="/partner/jobs"
           component={PartnerDashboard}
         />
-        <PartnerProtectedRoute
-          path="/partner/requests"
-          component={() => <h3>requests</h3>}
-        />
+        <PartnerProtectedRoute path="/partner/clients" component={Clients} />
         <Route component={() => <h3>404</h3>} />
       </Switch>
     </Router>
