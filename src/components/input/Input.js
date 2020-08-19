@@ -3,20 +3,20 @@ import PropTypes from "prop-types";
 
 import "./style.scss";
 
-const Input = ({ label, type, placeholder }) => {
+const Input = ({ label, type, placeholder, name, onChange, icon }) => {
   return (
     <div className="form-group">
-      {label && <label htmlFor="exampleInputEmail1">{label}</label>}
+      {label && <label htmlFor={name}>{label}</label>}
       <input
         type={type}
         className="form-control"
-        id="exampleInputEmail1"
-        aria-describedby="emailHelp"
+        id={name}
+        name={name}
+        onChange={onChange}
         placeholder={placeholder}
       />{" "}
-      {/* <small id="emailHelp" class="form-text text-muted">
-    We'll never share your email with anyone else.
-  </small> */}
+      <div className="form-group__icon">{icon}</div>
+      {/* <small id="emailHelp" class="form-text text-muted"> We'll neve</small> */}
     </div>
   );
 };

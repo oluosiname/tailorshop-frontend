@@ -37,6 +37,8 @@ main {
   &__container {
     background-color: #1c3faa;
     border-radius: 8px;
+
+    // background-color: #fff;
   }
 
   &__link {
@@ -46,6 +48,10 @@ main {
     font-weight: 400;
     padding: 0.75em 0.75em;
     margin-top: 0.75em;
+    // color: #3e3f5e;
+    &:visited {
+      color: inherit;
+    }
 
     span {
       flex-basis: 80%;
@@ -56,6 +62,9 @@ main {
     background-color: rgba(57, 94, 193, 1);
     border-radius: 5px;
     font-weight: 500;
+
+    // background-color: transparent;
+    // color: #22D2E2;
   }
 
   &__navigations {
@@ -77,11 +86,16 @@ main {
   font-size: 14px;
 
   &__link {
+    color: inherit;
     align-items: center;
     display: flex;
     font-weight: 200;
     padding: 0.75em 0.75em;
     margin-top: 0.75em;
+
+    &:visited {
+      color: inherit;
+    }
   }
 
   &__link.active {
@@ -116,4 +130,47 @@ main {
 
 .content {
   flex-basis: 80%;
+
+  &__header {
+    display: flex;
+    padding-bottom: 15px;
+
+    &__left {
+      flex: 80% 1;
+    }
+
+    &__right {
+      flex: 20%;
+      text-align: right;
+    }
+
+    button {
+      background-color: #1c3faa;
+      border: 1px solid #1c3faa;
+      color: white;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      padding-left: 1em;
+      padding-right: 1em;
+      border-radius: 0.2em;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-basis: 100%;
+  }
+
+  main {
+    width: 100%;
+  }
+
+  .sidebar {
+    display: none;
+  }
 }

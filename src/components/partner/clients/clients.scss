@@ -1,0 +1,75 @@
+.clients {
+  row-gap: 4%;
+}
+
+.client {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0 40px 0 rgba(94, 92, 154, 0.06);
+  position: relative;
+
+  &__icon {
+    border: 6px solid #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: -28px;
+    left: 22px;
+  }
+
+  &__info {
+    font-family: "Rajdhani", sans-serif;
+    padding: 44px 28px 0;
+    position: relative;
+  }
+
+  &__details {
+    margin-top: 30px;
+    color: #3e3f5e;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.4285714286em;
+
+    span {
+      margin-left: 1em;
+    }
+  }
+
+  &__jobs {
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin: 3em 0;
+    text-transform: uppercase;
+  }
+
+  &__name {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  &__meta {
+    display: flex;
+    // -ms-flex-align: center;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 22px;
+    padding: 14px 0;
+    border-top: 1px solid #eaeaf5;
+  }
+
+  .edit {
+    color: #38a9ff;
+    margin-right: 1em;
+  }
+
+  .delete {
+    color: #c31818;
+  }
+}
+
+.client__address {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 18em;
+}

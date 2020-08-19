@@ -1,12 +1,11 @@
 import React from "react";
-import "./dashboard.scss";
 
 const Dashboard = () => {
   return (
     <section className="content">
       <div
         className="p-right-2 p-left-2 p-bottom-5 m-bottom-5"
-        style={{ border: "2px solid red" }}
+        style={{ border: "2px solid red", height: "50px" }}
       >
         sss
       </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useLocation } from "react-router-dom";
-import "./dashboard.scss";
+import "./app.scss";
 const App = (props) => {
   const [expanded, setExpanded] = useState("");
   let location = useLocation();
@@ -33,7 +33,7 @@ const App = (props) => {
         <section className="sidebar">
           <div
             className="p-right-2 p-left-2 p-bottom-5 m-bottom-5"
-            style={{ border: "2px solid red", color: "black" }}
+            style={{ border: "2px solid red", color: "black", height: "50px" }}
           >
             Tailorshop
           </div>
