@@ -20,6 +20,7 @@ const App = (props) => {
   useEffect(() => {
     const name = location.pathname.split("/")[2];
     setExpanded(name);
+    setshowSideBar(false);
   }, [location]);
 
   const isExpanded = (name) => {
@@ -28,7 +29,6 @@ const App = (props) => {
 
   return (
     <div className="partner-app">
-      <div className={`overlay ${showSideBar ? "show" : ""}`}></div>
       <header>
         <FontAwesomeIcon
           icon="bars"
@@ -150,6 +150,7 @@ const App = (props) => {
         </section>
         <section className="content">{props.children}</section>
       </main>
+      <div className={`overlay ${showSideBar ? "show" : ""}`}></div>
     </div>
   );
 };
