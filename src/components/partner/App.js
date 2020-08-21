@@ -28,6 +28,7 @@ const App = (props) => {
 
   return (
     <div className="partner-app">
+      <div className={`overlay ${showSideBar ? "show" : ""}`}></div>
       <header>
         <FontAwesomeIcon
           icon="bars"

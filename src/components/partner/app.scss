@@ -176,9 +176,9 @@ main {
 
   .sidebar {
     // visibility: hidden;
-    z-index: 2;
+    z-index: 5;
     position: fixed;
-    opacity: 0.95;
+    opacity: 0.99;
     top: 0;
     width: 18em;
     left: -253px;
@@ -200,7 +200,7 @@ main {
 
   .sidebar.show {
     left: 0;
-    animation: slideout 1s 1;
+    animation: slideout 0.5s 1;
   }
 
   .hide-sidebar {
@@ -218,15 +218,25 @@ main {
 }
 
 @media (max-width: $breakpoint-tablet-pro) {
-  // .content {
-  //   flex-basis: 100%;
-  // }
+  .overlay.show {
+    opacity: 0.5;
+    z-index: 4;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    transition: opacity 0.15s linear;
+  }
 
   main {
     width: 100%;
   }
 
   .sidebar__container {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0;
     height: 100vh;
   }
 }
