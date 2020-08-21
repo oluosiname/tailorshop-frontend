@@ -45,6 +45,7 @@ main {
 
   &__link {
     align-items: center;
+    color: #fff;
     cursor: pointer;
     display: flex;
     font-weight: 400;
@@ -52,7 +53,7 @@ main {
     margin-top: 0.75em;
     // color: #3e3f5e;
     &:visited {
-      color: inherit;
+      color: #fff;
     }
 
     span {
@@ -88,7 +89,7 @@ main {
   font-size: 14px;
 
   &__link {
-    color: inherit;
+    color: #fff;
     align-items: center;
     display: flex;
     font-weight: 200;
@@ -96,7 +97,7 @@ main {
     margin-top: 0.75em;
 
     &:visited {
-      color: inherit;
+      color: #fff;
     }
   }
 
