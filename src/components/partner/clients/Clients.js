@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useDebugValue } from "react";
 import Input from "../../input/Input.js";
 import api from "../../../api";
 import "./clients.scss";
@@ -6,6 +6,7 @@ import ClientCard from "./ClientCard.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Loader from "../../loader/Loader";
 import axios from "axios";
+import useInfiniteScroll from "react-infinite-scroll-hook";
 
 const Clients = ({ location }) => {
   const [loading, setLoading] = useState(true);
@@ -20,8 +21,7 @@ const Clients = ({ location }) => {
   //     setClients(res);
   //   });
   // }, []);
-  // const CancelToken = axios.CancelToken;
-  // const source = CancelToken.source();
+
   useEffect(() => {
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
@@ -40,7 +40,11 @@ const Clients = ({ location }) => {
           { cancelToken: source.token }
         );
 
-        setClients((prevClients) => prevClients.concat(res.data));
+        setClients((prevClients) => {
+          setHasNextPage(hasNextKey(res.headers.link));
+          return prevClients.concat(res.data);
+        });
+
         setLoading(false);
       } catch (e) {
         setLoading(false);
@@ -56,15 +60,26 @@ const Clients = ({ location }) => {
     setClients([]);
   }, [q]);
 
+  function hasNextKey(link) {
+    return link.split(",").some((a) => a.indexOf("next") !== -1);
+  }
+
   const handleSearchChange = (e) => {
     setPage(1);
-    // source.cancel("Operation canceled by the user.");
     setQ(e.target.value);
   };
 
-  async function handleLoadMore() {
+  function handleLoadMore() {
     setPage((p) => p + 1);
   }
+
+  const infiniteRef = useInfiniteScroll({
+    loading,
+    hasNextPage,
+    onLoadMore: handleLoadMore,
+    scrollContainer: "window",
+    // threshold: 10,
+  });
 
   return (
     <React.Fragment>
@@ -82,7 +97,7 @@ const Clients = ({ location }) => {
           </select>
         </div>
       </section>
-      <div className="grid clients">
+      <div ref={infiniteRef} className="grid clients">
         {loading && <Loader />}
         {clients.map((client) => (
           <ClientCard client={client} key={client.id.toString()}></ClientCard>
