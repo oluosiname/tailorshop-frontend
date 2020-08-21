@@ -95,12 +95,24 @@
     border-radius: 0.25rem;
   }
 
+  &__input {
+    flex-basis: 32%;
+  }
+
   .list-orientation {
     margin-left: 1em;
     font-size: 36px;
 
     svg {
       margin-left: 10px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .search-filter {
+    &__input {
+      flex-basis: 75%;
     }
   }
 }

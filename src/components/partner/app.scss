@@ -10,15 +10,17 @@ header {
   border-bottom-width: 1px;
   display: flex;
   position: relative;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding: 1em 0.5em;
   margin-bottom: 2em;
-  z-index: 51;
 
   div {
     margin: auto;
     width: 75%;
   }
+}
+
+.toggle-sidebar {
+  display: none;
 }
 
 main {
@@ -161,16 +163,69 @@ main {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $breakpoint-tablet) {
   .content {
     flex-basis: 100%;
   }
 
   main {
+    margin-top: 1em;
     width: 100%;
   }
 
   .sidebar {
-    display: none;
+    // visibility: hidden;
+    z-index: 2;
+    position: fixed;
+    opacity: 0.95;
+    top: 0;
+    width: 18em;
+    left: -253px;
+    overflow: hidden;
+
+    &__brand {
+      display: none;
+    }
+  }
+
+  @keyframes slideout {
+    from {
+      left: -253px;
+    }
+    to {
+      left: 0px;
+    }
+  }
+
+  .sidebar.show {
+    left: 0;
+    animation: slideout 1s 1;
+  }
+
+  .hide-sidebar {
+    float: right;
+  }
+
+  header {
+    margin-bottom: 1em;
+  }
+
+  .toggle-sidebar {
+    display: block;
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: $breakpoint-tablet-pro) {
+  // .content {
+  //   flex-basis: 100%;
+  // }
+
+  main {
+    width: 100%;
+  }
+
+  .sidebar__container {
+    height: 100vh;
   }
 }

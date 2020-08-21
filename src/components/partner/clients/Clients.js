@@ -12,7 +12,7 @@ const Clients = ({ location }) => {
   const [loading, setLoading] = useState(true);
   const [clients, setClients] = useState([]);
   const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(9);
+  const [perPage, setPerPage] = useState(12);
   const [q, setQ] = useState("");
   const [hasNextPage, setHasNextPage] = useState(true);
 
@@ -58,6 +58,7 @@ const Clients = ({ location }) => {
 
   useEffect(() => {
     setClients([]);
+    setHasNextPage(false);
   }, [q]);
 
   function hasNextKey(link) {
@@ -84,7 +85,7 @@ const Clients = ({ location }) => {
   return (
     <React.Fragment>
       <section className="search-filter flex">
-        <div style={{ flexBasis: "25%" }}>
+        <div className="search-filter__input">
           <Input
             icon={<FontAwesomeIcon icon="search" />}
             onChange={handleSearchChange}

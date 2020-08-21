@@ -30,6 +30,8 @@ import {
   faMapMarkerAlt,
   faTh,
   faList,
+  faBars,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faQuestionCircle as faQuestionCircleRegular } from "@fortawesome/free-regular-svg-icons";
@@ -64,7 +66,9 @@ library.add(
   faMapMarkerAlt,
   faPhoneAlt,
   faTh,
-  faList
+  faList,
+  faBars,
+  faTimes
 
   // more icons go here
 );

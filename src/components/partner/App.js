@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useLocation } from "react-router-dom";
+import { AppProvider } from "../../contexts/AppContext";
+
 import "./app.scss";
 const App = (props) => {
   const [expanded, setExpanded] = useState("");
+  const [showSideBar, setshowSideBar] = useState(false);
   let location = useLocation();
   const toggle = (toExpand) => {
     if (expanded === toExpand) {
@@ -26,18 +29,28 @@ const App = (props) => {
   return (
     <div className="partner-app">
       <header>
-        <div>Dashboard</div>
+        <FontAwesomeIcon
+          icon="bars"
+          className="toggle-sidebar"
+          onClick={() => setshowSideBar((prev) => !prev)}
+        />{" "}
       </header>
 
       <main className="p-right-2 p-left-2">
-        <section className="sidebar">
+        <section className={`sidebar ${showSideBar ? "show" : ""}`}>
           <div
-            className="p-right-2 p-left-2 p-bottom-5 m-bottom-5"
+            className="sidebar__brand p-right-2 p-left-2 p-bottom-5 m-bottom-5"
             style={{ border: "2px solid red", color: "black", height: "50px" }}
           >
             Tailorshop
           </div>
           <div className="sidebar__container p-3">
+            <FontAwesomeIcon
+              icon="times"
+              className="toggle-sidebar hide-sidebar clearfix "
+              onClick={() => setshowSideBar((prev) => !prev)}
+            />{" "}
+            <div className="clearfix"></div>
             <div className="sidebar__navigations">
               <NavLink exact to="/partner/dashboard" className="sidebar__link">
                 <FontAwesomeIcon icon="home" className="sidebar__nav-icon" />{" "}

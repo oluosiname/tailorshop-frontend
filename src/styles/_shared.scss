@@ -86,6 +86,12 @@ a {
   }
 }
 
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 .btn {
   background-color: transparent;
   display: inline-block;
@@ -136,8 +142,13 @@ a {
   border-radius: 0.2rem;
 }
 
-$breakpoint-tablet: 768px;
 @media (max-width: $breakpoint-tablet) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
   .grid {
     grid-template-columns: 100%;
   }
