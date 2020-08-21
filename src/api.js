@@ -29,10 +29,10 @@ class API {
   //   }
   // }
 
-  async get(path, params = {}, passedHeaders = {}) {
+  async get(path, params = {}, args = {}) {
     try {
-      const response = await this.axios.get(path, { params });
-      return response.data;
+      const response = await this.axios.get(path, { params, ...args });
+      return response;
     } catch (e) {
       throw e;
     }
