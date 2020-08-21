@@ -1,0 +1,213 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "first_name": "Odele",
+      "last_name": "Bumpus",
+      "phone_number": "08085904592",
+      "address": "No 24, Bayo Street, Ikeja, Lagos",
+      "gender": "Female"
+    },
+    {
+      "id": 2,
+      "first_name": "Harmon",
+      "last_name": "Eyton",
+      "phone_number": "08037834707",
+      "address": "101A Adeniyi Jones, Ikeja, Lagos",
+      "gender": "Male"
+    },
+    {
+      "id": 3,
+      "first_name": "Ingmar",
+      "last_name": "Currm",
+      "phone_number": "08021255105",
+      "gender": "Male"
+    },
+    {
+      "id": 4,
+      "first_name": "Randi",
+      "last_name": "Duplan",
+      "phone_number": "08077714977",
+      "address": "Block 262 Flat 5, Amuwo-Odofin Lc.H.E. Mile-2 Lagos",
+      "gender": "Female"
+    },
+    {
+      "id": 5,
+      "first_name": "Merry",
+      "last_name": "Yukhnev",
+      "phone_number": "08048137184",
+      "address": "No 24, Bayo Street",
+      "gender": "Female"
+    },
+    {
+      "id": 6,
+      "first_name": "Stephen",
+      "last_name": "Dorre",
+      "address": "125 Nnamdi Azikiwe Street, Idumota, Lagos",
+      "phone_number": "08027676054",
+      "gender": "Male"
+    },
+    {
+      "id": 7,
+      "first_name": "Virgilio",
+      "last_name": "Piercy",
+      "phone_number": "08061679344",
+      "address": "1/3 Pound road Aba",
+      "gender": "Male"
+    },
+    {
+      "id": 8,
+      "first_name": "Ebonee",
+      "last_name": "Tankard",
+      "phone_number": "08094317554",
+      "gender": "Female"
+    },
+    {
+      "id": 9,
+      "first_name": "Broderick",
+      "last_name": "Holwell",
+      "phone_number": "08078718129",
+      "gender": "Male"
+    },
+    {
+      "id": 10,
+      "first_name": "Fay",
+      "last_name": "Lermit",
+      "phone_number": "08063178353",
+      "gender": "Female"
+    },
+    {
+      "id": 11,
+      "first_name": "Aaren",
+      "last_name": "Simunek",
+      "phone_number": "08021564366",
+      "gender": "Female"
+    },
+    {
+      "id": 12,
+      "first_name": "Jobyna",
+      "last_name": "Dradey",
+      "phone_number": "08012474299",
+      "gender": "Female"
+    },
+    {
+      "id": 13,
+      "first_name": "Jeramey",
+      "last_name": "Vernazza",
+      "phone_number": "08090447872",
+      "gender": "Male"
+    },
+    {
+      "id": 14,
+      "first_name": "Terrijo",
+      "last_name": "Greally",
+      "phone_number": "08052054203",
+      "gender": "Female"
+    },
+    {
+      "id": 15,
+      "first_name": "Ripley",
+      "last_name": "Folley",
+      "phone_number": "08091597878",
+      "gender": "Male"
+    },
+    {
+      "id": 16,
+      "first_name": "Dani",
+      "last_name": "Tollit",
+      "phone_number": "08080253188",
+      "gender": "Female"
+    },
+    {
+      "id": 17,
+      "first_name": "Allissa",
+      "last_name": "Mc Meekan",
+      "phone_number": "08030239140",
+      "gender": "Female"
+    },
+    {
+      "id": 18,
+      "first_name": "Clive",
+      "last_name": "Adlington",
+      "phone_number": "08099655433",
+      "gender": "Male"
+    },
+    {
+      "id": 19,
+      "first_name": "Jo-ann",
+      "last_name": "Conradsen",
+      "phone_number": "08025718542",
+      "gender": "Female"
+    },
+    {
+      "id": 20,
+      "first_name": "Raviv",
+      "last_name": "Huggill",
+      "phone_number": "08084422685",
+      "gender": "Male"
+    },
+    {
+      "id": 21,
+      "first_name": "Van",
+      "last_name": "Challicum",
+      "phone_number": "08059025034",
+      "gender": "Male"
+    },
+    {
+      "id": 22,
+      "first_name": "Aurlie",
+      "last_name": "Legge",
+      "phone_number": "08076981074",
+      "gender": "Female"
+    },
+    {
+      "id": 23,
+      "first_name": "Mordecai",
+      "last_name": "Ledwitch",
+      "phone_number": "08038956464",
+      "gender": "Male"
+    },
+    {
+      "id": 24,
+      "first_name": "Lenard",
+      "last_name": "Ruppel",
+      "phone_number": "08084078316",
+      "gender": "Male"
+    },
+    {
+      "id": 25,
+      "first_name": "Winnifred",
+      "last_name": "Penas",
+      "phone_number": "08062914081",
+      "gender": "Female"
+    },
+    {
+      "id": 26,
+      "first_name": "Ronny",
+      "last_name": "Gudge",
+      "phone_number": "08069740292",
+      "gender": "Female"
+    },
+    {
+      "id": 27,
+      "first_name": "Clark",
+      "last_name": "DelaField",
+      "phone_number": "08064141839",
+      "gender": "Male"
+    },
+    {
+      "id": 28,
+      "first_name": "Rees",
+      "last_name": "Bulloch",
+      "phone_number": "08073555536",
+      "gender": "Male"
+    },
+    {
+      "id": 29,
+      "first_name": "Melamie",
+      "last_name": "Lockner",
+      "phone_number": "08030479301",
+      "gender": "Female"
+    }
+  ]
+}
