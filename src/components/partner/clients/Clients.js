@@ -3,6 +3,7 @@ import Input from "../../input/Input.js";
 import api from "../../../api";
 import "./clients.scss";
 import ClientCard from "./ClientCard.js";
+import ClientRow from "./ClientRow.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Loader from "../../loader/Loader";
 import axios from "axios";
@@ -12,7 +13,7 @@ const Clients = ({ location }) => {
   const [loading, setLoading] = useState(true);
   const [clients, setClients] = useState([]);
   const [page, setPage] = useState(1);
-  const [listStye, setListStyle] = useState("grid");
+  const [listStyle, setListStyle] = useState("list");
   const [q, setQ] = useState("");
   const [hasNextPage, setHasNextPage] = useState(true);
 
@@ -77,6 +78,22 @@ const Clients = ({ location }) => {
     // threshold: 10,
   });
 
+  const gridClients = () => {
+    return clients.map((client) => (
+      <ClientCard client={client.attributes} key={client.id}></ClientCard>
+    ));
+  };
+
+  const listClients = () => {
+    return clients.map((client) => (
+      <ClientRow client={client.attributes} key={client.id}></ClientRow>
+    ));
+  };
+
+  const displayClients = () => {
+    return listStyle === "grid" ? gridClients() : listClients();
+  };
+
   return (
     <React.Fragment>
       <section className="search-filter flex">
@@ -86,17 +103,27 @@ const Clients = ({ location }) => {
             onChange={handleSearchChange}
           ></Input>
         </div>
-        <div className="flex">
-          <select>
-            <option>Name asc</option>
-            <option>Name desc</option>
-          </select>
+
+        <select>
+          <option>Name asc</option>
+          <option>Name desc</option>
+        </select>
+        <div className="orientation-style">
+          {listStyle === "list" ? (
+            <FontAwesomeIcon
+              icon="grip-horizontal"
+              onClick={() => setListStyle("grid")}
+            />
+          ) : (
+            <FontAwesomeIcon
+              icon="grip-lines"
+              onClick={() => setListStyle("list")}
+            />
+          )}
         </div>
       </section>
-      <div ref={infiniteRef} className="grid clients">
-        {clients.map((client) => (
-          <ClientCard client={client.attributes} key={client.id}></ClientCard>
-        ))}
+      <div ref={infiniteRef} className={`${listStyle} clients`}>
+        {displayClients()}
         {loading && <Loader />}
       </div>
     </React.Fragment>

@@ -32,6 +32,11 @@ import {
   faList,
   faBars,
   faTimes,
+  faEllipsisV,
+  faGripHorizontal,
+  faThLarge,
+  faGripLines,
+  faUserAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faQuestionCircle as faQuestionCircleRegular } from "@fortawesome/free-regular-svg-icons";
@@ -68,7 +73,13 @@ library.add(
   faTh,
   faList,
   faBars,
-  faTimes
+  faTimes,
+  faEllipsisV,
+  faGripHorizontal,
+  faThLarge,
+  faGripLines,
+  faUserTie,
+  faUserAlt
 
   // more icons go here
 );

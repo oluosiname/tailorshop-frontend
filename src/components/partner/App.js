@@ -31,7 +31,7 @@ const App = (props) => {
     <div className="partner-app">
       <header>
         <FontAwesomeIcon
-          icon="bars"
+          icon="ellipsis-v"
           className="toggle-sidebar"
           onClick={() => setshowSideBar((prev) => !prev)}
         />{" "}
