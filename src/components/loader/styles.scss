@@ -1,9 +1,10 @@
+@import "../../styles/main.scss";
 .lds-ring {
   display: inline-block;
   position: fixed;
   width: 80px;
   height: 80px;
-  left: 59em;
+  left: 55%;
   top: 30em;
   z-index: 2;
 }
@@ -34,5 +35,11 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .lds-ring {
+    left: 40%;
   }
 }

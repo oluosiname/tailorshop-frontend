@@ -76,8 +76,10 @@
 
 .search-filter {
   border-radius: 10px;
+  background: white;
+  padding: 1.5em 1.5em 0;
   justify-content: space-between;
-  margin-bottom: 1.5em;
+  margin-bottom: 2.5em;
 
   select {
     display: inline-block;

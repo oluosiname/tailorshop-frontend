@@ -12,6 +12,7 @@ const Clients = ({ location }) => {
   const [loading, setLoading] = useState(true);
   const [clients, setClients] = useState([]);
   const [page, setPage] = useState(1);
+  const [listStye, setListStyle] = useState("grid");
   const [q, setQ] = useState("");
   const [hasNextPage, setHasNextPage] = useState(true);
 
@@ -37,8 +38,6 @@ const Clients = ({ location }) => {
           },
           { cancelToken: source.token }
         );
-
-        console.log(res);
 
         setClients((prevClients) => {
           setHasNextPage(res.meta.has_next_page);
@@ -95,10 +94,10 @@ const Clients = ({ location }) => {
         </div>
       </section>
       <div ref={infiniteRef} className="grid clients">
-        {loading && <Loader />}
         {clients.map((client) => (
           <ClientCard client={client.attributes} key={client.id}></ClientCard>
         ))}
+        {loading && <Loader />}
       </div>
     </React.Fragment>
   );
