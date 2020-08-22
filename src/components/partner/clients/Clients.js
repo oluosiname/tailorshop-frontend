@@ -13,7 +13,7 @@ const Clients = ({ location }) => {
   const [loading, setLoading] = useState(true);
   const [clients, setClients] = useState([]);
   const [page, setPage] = useState(1);
-  const [listStyle, setListStyle] = useState("list");
+  const [listStyle, setListStyle] = useState("grid");
   const [q, setQ] = useState("");
   const [hasNextPage, setHasNextPage] = useState(true);
 

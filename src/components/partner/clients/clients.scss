@@ -162,28 +162,25 @@
   }
 
   .client__row {
-    .client__avatar {
-      display: none;
-    }
     .client__name {
-      flex-basis: 30%;
-    }
-
-    .client__address {
-      flex-basis: 30%;
+      flex-basis: 50%;
     }
 
     .client__phone {
-      flex-basis: 20%;
+      flex-basis: 30%;
+    }
+
+    .client__address,
+    .client__avatar {
+      display: none;
     }
 
     .client__view {
       display: none;
     }
 
-    .client_more {
-      flex-basis: 20%;
-      margin-top: 0px;
+    .client__more {
+      flex-basis: 5%;
     }
   }
 }
