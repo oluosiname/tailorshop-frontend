@@ -8,6 +8,7 @@ import * as serviceWorker from "./serviceWorker";
 import PartnerProtectedRoute from "./PartnerProtectedRoute";
 import PartnerDashboard from "./components/partner/Dashboard";
 import Clients from "./components/partner/clients/Clients";
+import Addresses from "./components/partner/Addresses/Addresses";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -21,7 +22,16 @@ ReactDOM.render(
           path="/partner/jobs"
           component={PartnerDashboard}
         />
-        <PartnerProtectedRoute path="/partner/clients" component={Clients} />
+        <PartnerProtectedRoute
+          exact
+          path="/partner/clients"
+          component={Clients}
+        />
+
+        <PartnerProtectedRoute
+          path="/partner/clients/:client_id/addresses"
+          component={Addresses}
+        />
         <Route component={() => <h3>404</h3>} />
       </Switch>
     </Router>

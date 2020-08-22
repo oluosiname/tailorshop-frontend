@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useLocation } from "react-router-dom";
-import { AppProvider } from "../../contexts/AppContext";
 
 import "./app.scss";
 const App = (props) => {

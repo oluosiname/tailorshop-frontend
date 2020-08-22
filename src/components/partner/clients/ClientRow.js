@@ -1,5 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 const ClientRow = ({ client }) => {
   return (
@@ -21,9 +22,12 @@ const ClientRow = ({ client }) => {
       </div>
 
       <div className="client__view">
-        <a href="/" className="btn btn--sm btn--link">
+        <Link
+          className="btn btn--sm btn--link"
+          to={`/partner/clients/${client.uuid}/addresses`}
+        >
           View Client
-        </a>
+        </Link>
       </div>
 
       <div className="client__more">
