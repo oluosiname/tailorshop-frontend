@@ -12,7 +12,7 @@ export const transformAPIError = (error) => {
 class API {
   constructor() {
     this.axios = axios.create({
-      baseURL: process.env.REACT_APP_API_BASE_URL,
+      baseURL: process.env.REACT_APP_API_BASE_URL + "/api/v1",
       // headers: { common: { Authorization: auth.token } },
     });
   }
@@ -32,7 +32,7 @@ class API {
   async get(path, params = {}, args = {}) {
     try {
       const response = await this.axios.get(path, { params, ...args });
-      return response;
+      return response.data;
     } catch (e) {
       throw e;
     }

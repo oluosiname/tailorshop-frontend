@@ -12,7 +12,6 @@ const Clients = ({ location }) => {
   const [loading, setLoading] = useState(true);
   const [clients, setClients] = useState([]);
   const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(12);
   const [q, setQ] = useState("");
   const [hasNextPage, setHasNextPage] = useState(true);
 
@@ -31,17 +30,18 @@ const Clients = ({ location }) => {
 
       try {
         const res = await api.get(
-          "/customers",
+          "/partners/customers",
           {
-            _page: page,
-            _limit: perPage,
+            page: page,
             q: q,
           },
           { cancelToken: source.token }
         );
 
+        console.log(res);
+
         setClients((prevClients) => {
-          setHasNextPage(hasNextKey(res.headers.link));
+          setHasNextPage(res.meta.has_next_page);
           return prevClients.concat(res.data);
         });
 
@@ -54,16 +54,12 @@ const Clients = ({ location }) => {
     return () => {
       source.cancel("Operation canceled by the user.");
     };
-  }, [page, perPage, q]);
+  }, [page, q]);
 
   useEffect(() => {
     setClients([]);
     setHasNextPage(false);
   }, [q]);
-
-  function hasNextKey(link) {
-    return link.split(",").some((a) => a.indexOf("next") !== -1);
-  }
 
   const handleSearchChange = (e) => {
     setPage(1);
@@ -101,7 +97,7 @@ const Clients = ({ location }) => {
       <div ref={infiniteRef} className="grid clients">
         {loading && <Loader />}
         {clients.map((client) => (
-          <ClientCard client={client} key={client.id.toString()}></ClientCard>
+          <ClientCard client={client.attributes} key={client.id}></ClientCard>
         ))}
       </div>
     </React.Fragment>
