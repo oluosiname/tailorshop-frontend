@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.scss";
-import { useState } from "react";
 
 const Toggle = ({ onChange, checked }) => {
   return (

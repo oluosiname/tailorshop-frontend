@@ -11,7 +11,7 @@ const Addresses = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await api.get(`/partners/customers/${client_id}/addresses`);
+        const res = await api.get(`/addresses`, { customer_id: client_id });
 
         setAddresses(res.data);
       } catch (e) {
@@ -22,28 +22,34 @@ const Addresses = () => {
   }, [client_id]);
 
   const setPrimaryAddress = async (uuid) => {
-    setAddresses((prev) => {
-      return prev.map((a) => {
-        a.attributes.primary = a.attributes.uuid === uuid;
-        return a;
+    try {
+      await api.patch(`/addresses/${uuid}`, {
+        address: {
+          primary: true,
+        },
       });
-    });
-    // try {
-    //   const res = await api.patch(`/partners/customers/${client_id}/addresses/$uuid/set_as_primary`);
-    //   setAddresses(prev => {
-    //     return prev.map(a => {
-    //       if(a.uuid === uuid){
-    //         a.primary = true
-    //       }else{
-    //         a,primary = false
-    //       }
-    //       return a
-    //     })
-    //   })
+      setAddresses((prev) => {
+        return prev.map((a) => {
+          a.attributes.primary = a.attributes.uuid === uuid;
+          return a;
+        });
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-    // } catch (e) {
-    //   console.log(e);
-    // }
+  const deleteAddress = async (uuid) => {
+    try {
+      await api.delete(`/addresses/${uuid}`);
+      setAddresses((prev) => {
+        return prev.filter((a) => {
+          return a.attributes.uuid !== uuid;
+        });
+      });
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -57,6 +63,7 @@ const Addresses = () => {
             key={address.id}
             address={address.attributes}
             setPrimaryAddress={setPrimaryAddress}
+            deleteAddress={deleteAddress}
           />
         ))}
       </div>

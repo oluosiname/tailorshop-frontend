@@ -1,8 +1,7 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Toggle from "../../toggle/Toggle";
 
-const Address = ({ address, setPrimaryAddress }) => {
+const Address = ({ address, setPrimaryAddress, deleteAddress }) => {
   return (
     <div className="address">
       <div className="address__info">
@@ -29,7 +28,9 @@ const Address = ({ address, setPrimaryAddress }) => {
       </div>
       <div className="address__meta">
         <div className="edit">Edit</div>
-        <div className="delete">Delete</div>
+        <div className="delete" onClick={() => deleteAddress(address.uuid)}>
+          Delete
+        </div>
       </div>
     </div>
   );

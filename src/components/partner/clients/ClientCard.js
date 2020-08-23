@@ -44,10 +44,7 @@ const ClientCard = ({ client }) => {
           </div>
           <div className="flex">
             <div className="edit">
-              <FontAwesomeIcon icon="edit" />
-            </div>
-            <div className="delete">
-              <FontAwesomeIcon icon="trash" />
+              <FontAwesomeIcon icon="edit" /> Edit
             </div>
           </div>
         </div>
