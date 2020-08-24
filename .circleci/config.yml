@@ -8,7 +8,6 @@ jobs:
       - node/install-packages
       - run:
           command: npm run test  -- --coverage
-jobs:
   build:
     executor:
       name: node/default
@@ -28,4 +27,4 @@ workflows:
       - test
       - build:
         requires:
-            - test
+          - test
