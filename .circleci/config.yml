@@ -21,15 +21,9 @@ version: 2.1
 orbs:
   node: circleci/node@3.0.0
 workflows:
-  testing:
+  build-deploy:
     jobs:
       - test
-  building:
-    jobs:
       - build:
-          filters:
-            branches:
-              only:
-                - master
           requires:
             - test
