@@ -9,7 +9,7 @@ jobs:
       - run:
           command: npm run test  -- --coverage
 jobs:
-  test:
+  build:
     executor:
       name: node/default
       tag: "13"
@@ -26,6 +26,6 @@ workflows:
     jobs:
       # - node/test another way of running test no need to define job
       - test
-      - build
-          requires:
+      - build:
+        requires:
             - test
