@@ -14,9 +14,8 @@ jobs:
       - run:
           name: Run tests
           command: |
-            npm run test  -- --coverage
             ./cc-test-reporter before-build
-            sudo vendor/bin/phpunit --coverage-clover clover.xml
+            npm run test  -- --coverage
             ./cc-test-reporter after-build --coverage-input-type clover --exit-code $?
   build:
     executor:
