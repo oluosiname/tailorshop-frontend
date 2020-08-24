@@ -14,9 +14,9 @@ jobs:
       - run:
           name: Run tests
           command: |
-            ./cc-test-reporter before-build
+            ./cc-test-reporter before-test
             npm run test  -- --coverage
-            ./cc-test-reporter after-build --coverage-input-type clover --exit-code $?
+            ./cc-test-reporter after-test --coverage-input-type clover --exit-code $?
   build:
     executor:
       name: node/default
