@@ -1,7 +1,31 @@
+jobs:
+  test:
+    executor:
+      name: node/default
+      tag: "13"
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          command: npm run test  -- --coverage
+jobs:
+  test:
+    executor:
+      name: node/default
+      tag: "13"
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          command: npm run build
 version: 2.1
 orbs:
   node: circleci/node@3.0.0
 workflows:
-  tests:
+  node-tests:
     jobs:
-      - npm test -- --coverage
+      # - node/test another way of running test no need to define job
+      - test
+      - build
+          requires:
+            - test
