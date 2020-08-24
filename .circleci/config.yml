@@ -27,3 +27,9 @@ workflows:
   building:
     jobs:
       - build
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - test
