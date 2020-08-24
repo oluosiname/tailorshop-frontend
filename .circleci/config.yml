@@ -8,6 +8,15 @@ jobs:
       - node/install-packages
       - run:
           command: npm run test  -- --coverage
+  build:
+    executor:
+      name: node/default
+      tag: "13.11"
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          command: npm run build
 version: 2.1
 orbs:
   node: circleci/node@3.0.0
@@ -15,3 +24,5 @@ workflows:
   node-tests:
     jobs:
       - test
+      - build:
+          requires: test
