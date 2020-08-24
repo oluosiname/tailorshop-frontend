@@ -1,8 +1,7 @@
 jobs:
   test:
-    executor:
-      docker:
-        - image: cimg/base:stable
+    docker:
+      - image: cimg/base:stable
     steps:
       - checkout
       - node/install-packages
