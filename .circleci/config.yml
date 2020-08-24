@@ -1,7 +1,7 @@
 jobs:
   test:
-    executor:
-      name: node/default
+    docker:
+      - image: circleci/node@3.0.0
       tag: "13"
     steps:
       - checkout
