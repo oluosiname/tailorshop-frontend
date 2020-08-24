@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import App from "./App";
 import "./fontawesome";
 import * as serviceWorker from "./serviceWorker";
 import PartnerProtectedRoute from "./PartnerProtectedRoute";
