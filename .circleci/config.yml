@@ -18,7 +18,7 @@ jobs:
             ./cc-test-reporter before-build
             npm run test  -- --coverage
             cd coverage
-            ./cc-test-reporter after-build --debug --coverage-input-type clover --exit-code $?
+            ./cc-test-reporter after-build --exit-code $?
   build:
     executor:
       name: node/default
