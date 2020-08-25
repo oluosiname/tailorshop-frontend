@@ -17,8 +17,6 @@ jobs:
           command: |
             echo ls
             ls
-            echo pwd
-            mkdir ./cc-test-reporter
             chmod +x ./cc-test-reporter
             ./cc-test-reporter before-build
             npm run test  -- --coverage
