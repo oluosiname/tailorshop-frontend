@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="address"
+>
+  <div
+    className="address__info"
+  >
+    <div
+      className="address__details"
+    >
+      <p
+        data-testid="address-address1"
+      >
+         
+        Block 262
+      </p>
+      <div
+        className="address__address2"
+      >
+        <span
+          data-testid="address-address2"
+        >
+          Flat 10
+        </span>
+      </div>
+      <p>
+        <span
+          data-testid="address-city"
+          style={
+            Object {
+              "letterSpacing": "1px",
+            }
+          }
+        >
+          Festac
+        </span>
+        , 
+        <span
+          data-testid="address-state"
+        >
+          Lagos
+        </span>
+      </p>
+    </div>
+    <div
+      className="default"
+    >
+      <span>
+        Default
+      </span>
+      <div
+        style={
+          Object {
+            "float": "right",
+          }
+        }
+      >
+         
+        <label
+          className="toggle-control"
+          data-testid="toggle-primary-address"
+        >
+          <input
+            checked={true}
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <span
+            className="control"
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+  <div
+    className="address__meta"
+  >
+    <div
+      className="edit"
+    >
+      Edit
+    </div>
+    <div
+      className="delete"
+      onClick={[Function]}
+    >
+      Delete
+    </div>
+  </div>
+</div>
+`;
