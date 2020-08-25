@@ -3,18 +3,19 @@ jobs:
     executor:
       name: node/default
       tag: "13.11"
-    working_directory: ~/tailorshop-frontend
     steps:
       - checkout
       - node/install-packages
       - run:
           name: Setup Code Climate test-reporter
           command: |
+            pwd
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
       - run:
           name: Run tests
           command: |
+            pwd
             mkdir /tmp/test-results
             ./cc-test-reporter before-build
             npm run test  -- --coverage
