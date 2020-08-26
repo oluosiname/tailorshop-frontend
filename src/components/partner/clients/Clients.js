@@ -103,11 +103,6 @@ const Clients = ({ location }) => {
             onChange={handleSearchChange}
           ></Input>
         </div>
-
-        <select>
-          <option>Name asc</option>
-          <option>Name desc</option>
-        </select>
         <div className="orientation-style">
           {listStyle === "list" ? (
             <FontAwesomeIcon

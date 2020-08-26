@@ -1,21 +1,80 @@
-@import "../../styles/main.scss";
+@import "../../styles/variables.scss";
 
 .partner-app {
   font-family: "Roboto", sans-serif;
-}
 
-header {
-  align-items: center;
-  border-bottom: 1px solid #dee7ef;
-  border-bottom-width: 1px;
-  display: flex;
-  position: relative;
-  padding: 1em 0.5em;
-  margin-bottom: 2em;
+  .mobile-header {
+    align-items: center;
+    border-bottom: 1px solid #dee7ef;
+    position: relative;
+    padding: 1em 0.5em;
+    display: none;
+  }
 
-  div {
-    margin: auto;
-    width: 75%;
+  header {
+    align-items: center;
+    border-bottom: 1px solid #dee7ef;
+    border-bottom-width: 1px;
+    background: #fff;
+    position: relative;
+    padding: 0.5em 1.5em 0.3em 1.5em;
+    margin-bottom: 2em;
+
+    @keyframes slideout {
+      from {
+        left: -253px;
+      }
+      to {
+        left: 0px;
+      }
+    }
+
+    &.show {
+      left: 0;
+      animation: slideout 0.5s 1;
+      visibility: visible;
+    }
+
+    .container {
+      align-items: center;
+      justify-content: space-between;
+      margin: auto;
+      width: 80%;
+    }
+
+    div:nth-of-type(2) {
+      width: 20%;
+    }
+    .logo {
+      margin-left: -10px;
+      flex-basis: 20%;
+    }
+  }
+
+  nav {
+    flex-basis: 33%;
+
+    ul {
+      justify-content: space-between;
+      list-style: none;
+      text-transform: uppercase;
+      font-family: Poppins, sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      padding: 0;
+    }
+
+    .nav-link {
+      color: $primary-color;
+
+      &:visited {
+        color: $primary-color;
+      }
+
+      &.active {
+        color: $secondary-color;
+      }
+    }
   }
 }
 
@@ -24,7 +83,7 @@ header {
   display: none;
 
   &.hide-sidebar {
-    color: #fff;
+    color: $secondary-color;
   }
 }
 
@@ -32,7 +91,7 @@ main {
   display: flex;
   margin: auto;
   margin-top: 2em;
-  width: 75%;
+  width: 80%;
 }
 
 .sidebar {
@@ -42,7 +101,7 @@ main {
   margin-right: 2em;
 
   &__container {
-    background-color: #1c3faa;
+    background-color: #fbfbfb;
     border-radius: 8px;
 
     // background-color: #fff;
@@ -50,7 +109,7 @@ main {
 
   &__link {
     align-items: center;
-    color: #fff;
+    color: #4e5056;
     cursor: pointer;
     display: flex;
     font-weight: 400;
@@ -58,7 +117,7 @@ main {
     margin-top: 0.75em;
     // color: #3e3f5e;
     &:visited {
-      color: #fff;
+      color: #4e5056;
     }
 
     span {
@@ -67,17 +126,17 @@ main {
   }
 
   &__link.active {
-    background-color: rgba(57, 94, 193, 1);
+    background-color: #4e5056;
     border-radius: 5px;
     font-weight: 500;
 
     // background-color: transparent;
-    // color: #22D2E2;
+    color: #fff;
   }
 
   &__navigations {
     border-top: 1px solid;
-    border-color: rgba(46, 81, 187, 1);
+    border-color: #dcdfe6;
     margin-top: 2em;
     padding-top: 1.4em;
   }
@@ -137,7 +196,7 @@ main {
 }
 
 .content {
-  flex-basis: 80%;
+  flex-basis: 100%;
 
   &__header {
     display: flex;
@@ -174,9 +233,49 @@ main {
     flex-basis: 100%;
   }
 
+  .partner-app {
+    .mobile-header {
+      display: flex;
+    }
+
+    header {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      height: 100vh;
+      width: 80%;
+      position: fixed;
+      z-index: 5;
+      top: 0;
+      visibility: hidden;
+
+      .logo {
+        border-bottom: 1px solid #dee7ef;
+        flex-basis: 100%;
+        padding-bottom: 20px;
+
+        svg {
+          margin-top: 9px;
+        }
+      }
+    }
+  }
+
   main {
     margin-top: 1em;
     width: 100%;
+  }
+
+  .partner-app header .container {
+    flex-wrap: wrap;
+    width: 100%;
+    nav {
+      flex-basis: 100%;
+
+      li {
+        flex-basis: 100%;
+        margin: 1em 0;
+      }
+    }
   }
 
   .sidebar {

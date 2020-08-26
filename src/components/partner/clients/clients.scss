@@ -1,3 +1,5 @@
+@import "../../../styles/variables.scss";
+
 .clients {
   row-gap: 3em;
 }
@@ -32,6 +34,9 @@
     span {
       margin-left: 1em;
     }
+    svg {
+      color: $nursery-color;
+    }
   }
 
   &__jobs {
@@ -57,7 +62,7 @@
   }
 
   .edit {
-    color: #38a9ff;
+    color: $dark-primary-color;
   }
 
   .delete {
@@ -113,7 +118,7 @@
 }
 
 .search-filter {
-  border-radius: 10px;
+  border-radius: 5px;
   background: white;
   padding: 1.5em 1.5em 0;
   justify-content: space-between;
@@ -136,7 +141,7 @@
   }
 
   &__input {
-    flex-basis: 32%;
+    flex-basis: 90%;
   }
 }
 
@@ -151,9 +156,7 @@
     &__input {
       flex-basis: 75%;
     }
-  }
 
-  .search-filter {
     select {
       margin-left: 10px;
       width: 35%;

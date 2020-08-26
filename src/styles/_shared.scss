@@ -1,3 +1,5 @@
+@import "./variables";
+
 *,
 ::before,
 ::after {
@@ -47,7 +49,7 @@ a {
 .grid {
   column-gap: 2%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .pagination {
@@ -123,13 +125,13 @@ a {
   }
 
   &--link {
-    background-color: rgba(23, 97, 253, 0.1);
-    color: #1c3fab;
+    background-color: $light-primary-color;
+    color: $dark-primary-color;
     font-weight: 500;
 
     &:hover {
-      background-color: #1761fd;
-      color: #fff;
+      background-color: $dark-primary-color;
+      color: $light-primary-color;
     }
   }
 }
@@ -142,9 +144,25 @@ a {
   border-radius: 0.2rem;
 }
 
+.mobile {
+  display: none;
+}
+
 @media (max-width: $breakpoint-tablet) {
   .grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .flex {
+    flex-wrap: wrap;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .not-mobile {
+    display: none;
   }
 }
 
