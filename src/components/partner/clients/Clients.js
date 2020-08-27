@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Loader from "../../loader/Loader";
 import axios from "axios";
 import useInfiniteScroll from "react-infinite-scroll-hook";
+import { Link } from "react-router-dom";
 
 const Clients = ({ location }) => {
   const [loading, setLoading] = useState(true);
@@ -90,24 +91,33 @@ const Clients = ({ location }) => {
   return (
     <React.Fragment>
       <section className="search-filter flex">
-        <div className="search-filter__input">
-          <Input
-            icon={<FontAwesomeIcon icon="search" />}
-            onChange={handleSearchChange}
-          ></Input>
-        </div>
-        <div className="orientation-style">
-          {listStyle === "list" ? (
-            <FontAwesomeIcon
-              icon="grip-horizontal"
-              onClick={() => setListStyle("grid")}
-            />
-          ) : (
-            <FontAwesomeIcon
-              icon="grip-lines"
-              onClick={() => setListStyle("list")}
-            />
-          )}
+        <Link
+          className="btn btn--sm btn--link new-client-link"
+          to={"/partner/clients/new"}
+        >
+          <FontAwesomeIcon icon="plus" />
+          New Client
+        </Link>
+        <div className="filter-orientation">
+          <div className="search-filter__input">
+            <Input
+              icon={<FontAwesomeIcon icon="search" />}
+              onChange={handleSearchChange}
+            ></Input>
+          </div>
+          <div className="orientation-style">
+            {listStyle === "list" ? (
+              <FontAwesomeIcon
+                icon="grip-horizontal"
+                onClick={() => setListStyle("grid")}
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon="grip-lines"
+                onClick={() => setListStyle("list")}
+              />
+            )}
+          </div>
         </div>
       </section>
       <div ref={infiniteRef} className={`${listStyle} clients`}>

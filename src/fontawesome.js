@@ -37,6 +37,7 @@ import {
   faThLarge,
   faGripLines,
   faUserAlt,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faQuestionCircle as faQuestionCircleRegular } from "@fortawesome/free-regular-svg-icons";
@@ -79,7 +80,8 @@ library.add(
   faThLarge,
   faGripLines,
   faUserTie,
-  faUserAlt
+  faUserAlt,
+  faPlus
 
   // more icons go here
 );
