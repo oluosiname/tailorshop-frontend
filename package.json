@@ -17,6 +17,7 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.3",
     "enzyme-to-json": "^3.5.0",
+    "formik": "^2.1.5",
     "json-server": "^0.16.1",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
@@ -27,7 +28,8 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "react-select": "^3.1.0"
+    "react-select": "^3.1.0",
+    "yup": "^0.29.3"
   },
   "scripts": {
     "start": "react-scripts start",

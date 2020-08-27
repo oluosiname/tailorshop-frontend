@@ -8,6 +8,7 @@ import * as serviceWorker from "./serviceWorker";
 import PartnerProtectedRoute from "./PartnerProtectedRoute";
 import PartnerDashboard from "./components/partner/Dashboard";
 import Clients from "./components/partner/clients/Clients";
+import NewClient from "./components/partner/clients/NewClient";
 import Addresses from "./components/partner/Addresses/Addresses";
 
 ReactDOM.render(
@@ -26,6 +27,11 @@ ReactDOM.render(
           exact
           path="/partner/clients"
           component={Clients}
+        />
+        <PartnerProtectedRoute
+          exact
+          path="/partner/clients/new"
+          component={NewClient}
         />
 
         <PartnerProtectedRoute
