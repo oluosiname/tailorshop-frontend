@@ -1,7 +1,6 @@
-import React, { useEffect, useState, useDebugValue } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../../input/Input.js";
 import api from "../../../api";
-import "./clients.scss";
 import ClientCard from "./ClientCard.js";
 import ClientRow from "./ClientRow.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,12 +15,6 @@ const Clients = ({ location }) => {
   const [listStyle, setListStyle] = useState("grid");
   const [q, setQ] = useState("");
   const [hasNextPage, setHasNextPage] = useState(true);
-
-  // useEffect(() => {
-  //   api.get("/customers").then((res) => {
-  //     setClients(res);
-  //   });
-  // }, []);
 
   useEffect(() => {
     const CancelToken = axios.CancelToken;

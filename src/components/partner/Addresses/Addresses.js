@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../../api";
 import Address from "./Address";
-import "./address.scss";
 
 const Addresses = () => {
   const [addresses, setAddresses] = useState([]);

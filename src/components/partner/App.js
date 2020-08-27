@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import "./app.scss";
 import Header from "./Header";
 const App = (props) => {
   const [showSideBar, setshowSideBar] = useState(false);
