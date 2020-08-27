@@ -1,5 +1,8 @@
+@import "../../styles/variables.scss";
+
 .form-group {
   display: flex;
+  flex-wrap: wrap;
 
   &__icon {
     color: #8a8585;
@@ -68,4 +71,8 @@ textarea {
   background-color: #fff;
   border-color: rgba(23, 97, 253, 0.5);
   outline: 0;
+}
+
+.error {
+  border-color: $form-invalid;
 }

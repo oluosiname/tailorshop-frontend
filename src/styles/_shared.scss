@@ -148,6 +148,45 @@ a {
   display: none;
 }
 
+.card {
+  -webkit-box-shadow: 0px 2px 4px rgba(31, 30, 47, 0.03);
+  box-shadow: 0px 2px 4px rgba(31, 30, 47, 0.03);
+  margin-bottom: 24px;
+  background-color: #fff;
+  border: 1px solid #eceff5;
+  background-clip: border-box;
+  border-radius: 0.25em;
+
+  &__header {
+    background-color: #fff;
+    border-bottom: 1px solid #eceff5;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    margin: 2px;
+
+    &__title {
+      text-transform: capitalize;
+      line-height: 22px;
+      font-size: 14px;
+      font-weight: 500;
+      margin: 6px 0 3px;
+      color: #2c3652;
+      text-shadow: 0 0 1px rgba(241, 245, 250, 0.1);
+    }
+  }
+
+  &__body {
+    padding: 1.25rem;
+  }
+}
+
+.invalid-feedback {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 86%;
+  color: $form-invalid;
+}
+
 @media (max-width: $breakpoint-tablet) {
   .grid {
     grid-template-columns: 1fr 1fr;
