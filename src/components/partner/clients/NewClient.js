@@ -3,7 +3,7 @@ import Form from "./Form";
 import api from "../../../api";
 import snakeize from "../../../utilities/snakeize";
 
-const NewClient = () => {
+const NewClient = ({ history }) => {
   const fields = {
     firstName: "",
     lastName: "",
@@ -13,7 +13,7 @@ const NewClient = () => {
 
   const handleSubmit = async (client) => {
     try {
-      const res = await api.post(
+      await api.post(
         "/partners/customers",
 
         {
@@ -21,11 +21,9 @@ const NewClient = () => {
         }
       );
 
-      console.log(res);
-      return "me";
+      history.push("/partner/clients");
     } catch (e) {
-      console.log(e);
-      return "fffff";
+      throw e;
     }
   };
   return (
