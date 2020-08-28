@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
 import logo from "../../images/logo.png";
@@ -28,13 +28,23 @@ const Header = ({ setshowSideBar, showSideBar }) => {
             <ul className="flex">
               <li>
                 {" "}
-                <NavLink exact to="/partner/dashboard" className="nav-link">
+                <NavLink
+                  exact
+                  to="/partner/dashboard"
+                  className="nav-link"
+                  onClick={() => setshowSideBar(false)}
+                >
                   Home
                 </NavLink>
               </li>
               <li className="nav-link">Jobs</li>
               <li>
-                <NavLink exact to="/partner/clients" className="nav-link">
+                <NavLink
+                  exact
+                  to="/partner/clients"
+                  className="nav-link"
+                  onClick={() => setshowSideBar(false)}
+                >
                   Clients
                 </NavLink>
               </li>
