@@ -20,17 +20,14 @@ class API {
     });
   }
 
-  // async post(path, body) {
-  //   const headers = {
-  //     Authorization: "Bearer " + auth.token,
-  //   };
-  //   try {
-  //     const response = await this.axios.post(path, body, { headers });
-  //     return response.data;
-  //   } catch (e) {
-  //     throw e;
-  //   }
-  // }
+  async post(path, body) {
+    try {
+      const response = await this.axios.post(path, { ...body });
+      return response.data;
+    } catch (e) {
+      throw e;
+    }
+  }
 
   async get(path, params = {}, args = {}) {
     try {
