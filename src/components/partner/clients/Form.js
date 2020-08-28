@@ -13,12 +13,12 @@ const genderOptions = [
 const Form = ({ handleSubmit, fields }) => {
   const [formErrors, setFormErrors] = useState([]);
   let clientSchema = object().shape({
-    // firstName: string().required("Please enter client's first name"),
-    // lastName: string().required("Please enter client's last name"),
-    // gender: string().required("Please select a gender"),
-    // phoneNumber: number()
-    //   .typeError("Phone number should contain only numbers")
-    //   .required("Please enter client's phone number"),
+    firstName: string().required("Please enter client's first name"),
+    lastName: string().required("Please enter client's last name"),
+    gender: string().required("Please select a gender"),
+    phoneNumber: number()
+      .typeError("Phone number should contain only numbers")
+      .required("Please enter client's phone number"),
   });
 
   const onSubmit = (values, { setSubmitting }) => {
