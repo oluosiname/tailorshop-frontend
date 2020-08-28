@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Formik, Form as FormikForm, ErrorMessage, Field } from "formik";
 import { string, object, number } from "yup";
 import Input from "../../input/Input";
-import Select from "react-select";
-import { capitalize } from "../../../utilities/utilities";
+import MySelect from "../../MySelect";
 
 const genderOptions = [
   { value: "", label: "Select....", color: "#0052CC", isDisabled: true },
@@ -20,34 +19,6 @@ const Form = ({ handleSubmit, fields }) => {
       .typeError("Phone number should contain only numbers")
       .required("Please enter client's phone number"),
   });
-
-  const MySelect = (props) => {
-    let selectedOption;
-    if (props.value) {
-      selectedOption = {
-        value: props.value,
-        label: capitalize(props.value),
-      };
-    } else {
-      selectedOption = genderOptions[0];
-    }
-    const handleChange = ({ value }) => {
-      props.onChange(props.field, value);
-    };
-
-    return (
-      <React.Fragment>
-        <label htmlFor={props.field}>{capitalize(props.field)} </label>
-        <Select
-          options={genderOptions}
-          defaultValue={genderOptions[1]}
-          onChange={handleChange}
-          value={selectedOption}
-          isSearchable={false}
-        />
-      </React.Fragment>
-    );
-  };
 
   const onSubmit = (values, { setSubmitting }) => {
     handleSubmit(values).then((r) => {
@@ -128,6 +99,7 @@ const Form = ({ handleSubmit, fields }) => {
               error={errors.gender}
               touched={touched.gender}
               field={"gender"}
+              options={genderOptions}
             />
             <ErrorMessage
               name="gender"
