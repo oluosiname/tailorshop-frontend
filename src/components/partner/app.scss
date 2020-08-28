@@ -91,6 +91,7 @@ main {
   display: flex;
   margin: auto;
   margin-top: 2em;
+  padding: 0 10px;
   width: 80%;
 }
 
@@ -263,6 +264,7 @@ main {
   main {
     margin-top: 1em;
     width: 100%;
+    padding: 0;
   }
 
   .partner-app header .container {

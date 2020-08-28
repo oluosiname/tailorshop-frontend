@@ -216,4 +216,9 @@ a {
   .grid {
     grid-template-columns: 100%;
   }
+
+  .card {
+    border: none;
+    box-shadow: none;
+  }
 }

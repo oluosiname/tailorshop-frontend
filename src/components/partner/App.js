@@ -11,7 +11,7 @@ const App = (props) => {
   return (
     <div className="partner-app">
       <Header setshowSideBar={setshowSideBar} showSideBar={showSideBar} />
-      <main className="p-right-2 p-left-2">
+      <main>
         {/* <section className={`sidebar ${showSideBar ? "show" : ""}`}>
           <div className="sidebar__container p-3">
             <div
