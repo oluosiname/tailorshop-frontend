@@ -206,3 +206,17 @@
     }
   }
 }
+
+.invalid-tooltip {
+  position: relative;
+  top: 100%;
+  max-width: 100%;
+  padding: 1em 0.5rem;
+  margin-top: 0.1rem;
+  margin-bottom: 3em;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #fff;
+  background-color: rgba(245, 50, 92, 0.9);
+  border-radius: 0.25rem;
+}

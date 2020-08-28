@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form as FormikForm, ErrorMessage, Field } from "formik";
 import { string, object, number } from "yup";
 import Input from "../../input/Input";
@@ -11,24 +11,31 @@ const genderOptions = [
 ];
 
 const Form = ({ handleSubmit, fields }) => {
+  const [formErrors, setFormErrors] = useState([]);
   let clientSchema = object().shape({
-    firstName: string().required("Please enter client's first name"),
-    lastName: string().required("Please enter client's last name"),
-    gender: string().required("Please select a gender"),
-    phoneNumber: number()
-      .typeError("Phone number should contain only numbers")
-      .required("Please enter client's phone number"),
+    // firstName: string().required("Please enter client's first name"),
+    // lastName: string().required("Please enter client's last name"),
+    // gender: string().required("Please select a gender"),
+    // phoneNumber: number()
+    //   .typeError("Phone number should contain only numbers")
+    //   .required("Please enter client's phone number"),
   });
 
   const onSubmit = (values, { setSubmitting }) => {
-    handleSubmit(values).then((r) => {
-      console.log(values);
-      setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
-        setSubmitting(false);
-      }, 4000);
-      // setSubmitting(false);
+    handleSubmit(values).catch((err) => {
+      setFormErrors(err.response.data.errors);
+      setSubmitting(false);
     });
+  };
+
+  const displayFormErrors = () => {
+    return (
+      <div className="invalid-tooltip">
+        {formErrors.map((e) => (
+          <li>{e}</li>
+        ))}
+      </div>
+    );
   };
 
   return (
@@ -48,6 +55,7 @@ const Form = ({ handleSubmit, fields }) => {
         setFieldValue,
       }) => (
         <FormikForm>
+          {formErrors.length > 0 && displayFormErrors()}
           <div className="fieldset m-bottom-5">
             <Input
               name="lastName"

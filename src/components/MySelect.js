@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Select from "react-select";
 import { capitalize } from "../utilities/utilities";
+
 const MySelect = (props) => {
   let selectedOption;
+
   if (props.value) {
     selectedOption = {
       value: props.value,
@@ -11,6 +13,7 @@ const MySelect = (props) => {
   } else {
     selectedOption = props.options[0];
   }
+
   const handleChange = ({ value }) => {
     props.onChange(props.field, value);
   };
@@ -22,7 +25,7 @@ const MySelect = (props) => {
         options={props.options}
         onChange={handleChange}
         value={selectedOption}
-        isSearchable={false}
+        isSearchable={props.isSearchable || false}
       />
     </React.Fragment>
   );
