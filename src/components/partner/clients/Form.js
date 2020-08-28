@@ -1,32 +1,81 @@
-import React from "react";
-import { Formik, Form as FormikForm, ErrorMessage } from "formik";
+import React, { useState } from "react";
+import { Formik, Form as FormikForm, ErrorMessage, Field } from "formik";
 import { string, object, number } from "yup";
 import Input from "../../input/Input";
+import Select from "react-select";
+import { capitalize } from "../../../utilities/utilities";
+
+const genderOptions = [
+  { value: "", label: "Select....", color: "#0052CC", isDisabled: true },
+  { value: "male", label: "Male" },
+  { value: "female", label: "Female" },
+];
 
 const Form = ({ handleSubmit, fields }) => {
   let clientSchema = object().shape({
     firstName: string().required("Please enter client's first name"),
     lastName: string().required("Please enter client's last name"),
-    gender: string(),
+    gender: string().required("Please select a gender"),
     phoneNumber: number()
       .typeError("Phone number should contain only numbers")
       .required("Please enter client's phone number"),
   });
+
+  const MySelect = (props) => {
+    let selectedOption;
+    if (props.value) {
+      selectedOption = {
+        value: props.value,
+        label: capitalize(props.value),
+      };
+    } else {
+      selectedOption = genderOptions[0];
+    }
+    const handleChange = ({ value }) => {
+      props.onChange(props.field, value);
+    };
+
+    return (
+      <React.Fragment>
+        <label htmlFor={props.field}>{capitalize(props.field)} </label>
+        <Select
+          options={genderOptions}
+          defaultValue={genderOptions[1]}
+          onChange={handleChange}
+          value={selectedOption}
+          isSearchable={false}
+        />
+      </React.Fragment>
+    );
+  };
+
   const onSubmit = (values, { setSubmitting }) => {
     handleSubmit(values).then((r) => {
-      console.log(r);
-      setSubmitting(false);
+      console.log(values);
+      setTimeout(() => {
+        alert(JSON.stringify(values, null, 2));
+        setSubmitting(false);
+      }, 4000);
+      // setSubmitting(false);
     });
   };
+
   return (
     <Formik
       initialValues={fields}
       onSubmit={onSubmit}
       validationSchema={clientSchema}
-      validateOnChange={false}
+      validateOnChange={true}
       validateOnBlur={false}
     >
-      {({ isSubmitting, errors, handleChange, values }) => (
+      {({
+        isSubmitting,
+        errors,
+        handleChange,
+        values,
+        touched,
+        setFieldValue,
+      }) => (
         <FormikForm>
           <div className="fieldset m-bottom-5">
             <Input
@@ -34,7 +83,7 @@ const Form = ({ handleSubmit, fields }) => {
               onChange={handleChange}
               label="Last Name"
               value={values.lastName}
-              classNames={errors.lastName ? "error" : ""}
+              classNames={touched.lastName && errors.lastName ? "error" : ""}
             ></Input>
             <ErrorMessage
               name="lastName"
@@ -48,7 +97,7 @@ const Form = ({ handleSubmit, fields }) => {
               onChange={handleChange}
               label="First Name"
               value={values.firstName}
-              classNames={errors.firstName ? "error" : ""}
+              classNames={touched.firstName && errors.firstName ? "error" : ""}
             ></Input>
             <ErrorMessage
               name="firstName"
@@ -62,7 +111,9 @@ const Form = ({ handleSubmit, fields }) => {
               onChange={handleChange}
               label="Phone Number"
               value={values.phoneNumber}
-              classNames={errors.phoneNumber ? "error" : ""}
+              classNames={
+                touched.phoneNumber && errors.phoneNumber ? "error" : ""
+              }
             ></Input>
             <ErrorMessage
               name="phoneNumber"
@@ -71,15 +122,25 @@ const Form = ({ handleSubmit, fields }) => {
             />
           </div>
           <div className="fieldset m-bottom-5">
-            <Input
-              name="gender"
-              onChange={handleChange}
-              label="Gender"
+            <MySelect
               value={values.gender}
-            ></Input>
+              onChange={setFieldValue}
+              error={errors.gender}
+              touched={touched.gender}
+              field={"gender"}
+            />
+            <ErrorMessage
+              name="gender"
+              component="div"
+              className="invalid-feedback"
+            />
           </div>
-          <button type="submit" disabled={isSubmitting}>
-            Submit
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="btn btn--primary"
+          >
+            Save
           </button>
         </FormikForm>
       )}
