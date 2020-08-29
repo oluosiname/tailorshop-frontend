@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
 
 import Header from "./Header";
 const App = (props) => {
@@ -10,6 +11,18 @@ const App = (props) => {
 
   return (
     <div className="partner-app">
+      <ToastContainer
+        position="top-left"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+      />
+
       <Header setshowSideBar={setshowSideBar} showSideBar={showSideBar} />
       <main>
         <section className="content">{props.children}</section>

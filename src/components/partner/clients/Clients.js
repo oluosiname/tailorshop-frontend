@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+
 import Input from "../../input/Input.js";
 import api from "../../../api";
 import ClientCard from "./ClientCard.js";
@@ -10,6 +12,7 @@ import useInfiniteScroll from "react-infinite-scroll-hook";
 import Modal from "../../modal/Modal.js";
 import NewClient from "./NewClient.js";
 import snakeize from "../../../utilities/snakeize";
+import Toast from "../../toast/Toast";
 
 const Clients = ({ location }) => {
   const [loading, setLoading] = useState(true);
@@ -106,6 +109,13 @@ const Clients = ({ location }) => {
       );
       setClients((prevClients) => [res.data, ...prevClients]);
       setShowClientModal(false);
+      toast(
+        <Toast
+          title={"Success"}
+          body={"Client was added successfully"}
+          status={"success"}
+        />
+      );
     } catch (e) {
       throw e;
     }

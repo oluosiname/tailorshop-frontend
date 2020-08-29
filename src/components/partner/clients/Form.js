@@ -22,14 +22,18 @@ const Form = ({ handleSubmit, fields, handleCancel }) => {
       .required("Please enter client's phone number"),
   });
 
-  const onSubmit = (values, { setSubmitting }) => {
-    handleSubmit(values).catch((err) => {
-      setFormErrors(err.response.data.errors);
-      setSubmitting(false);
-    });
+  const onSubmit = (values, { setSubmitting, resetForm }) => {
+    handleSubmit(values)
+      .then(() => {
+        resetForm();
+      })
+      .catch((err) => {
+        setFormErrors(err.response.data.errors);
+        setSubmitting(false);
+      });
   };
 
-  const resetForm = () => {
+  const clearForm = () => {
     setFormErrors([]);
     handleCancel();
   };
@@ -132,7 +136,7 @@ const Form = ({ handleSubmit, fields, handleCancel }) => {
           <button
             type="reset"
             className="btn btn--danger m-left-2"
-            onClick={resetForm}
+            onClick={clearForm}
           >
             Cancel
           </button>
