@@ -160,6 +160,10 @@
   margin-left: 10px;
 }
 
+.new-client-accordion {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .search-filter {
     &__input {
@@ -203,6 +207,39 @@
 
     .client__more {
       flex-basis: 5%;
+    }
+  }
+
+  .new-client-accordion {
+    display: block;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    animation: slideup 0.5s 1;
+
+    @keyframes slidedown {
+      from {
+        height: 0px;
+      }
+      to {
+        height: 550px;
+      }
+    }
+
+    @keyframes slideup {
+      from {
+        height: 550px;
+      }
+      to {
+        height: 0px;
+      }
+    }
+
+    &.show {
+      animation: slidedown 0.5s 1;
+      visibility: visible;
+      min-height: 550px;
+      height: auto;
     }
   }
 }

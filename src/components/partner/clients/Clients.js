@@ -7,7 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Loader from "../../loader/Loader";
 import axios from "axios";
 import useInfiniteScroll from "react-infinite-scroll-hook";
-import { Link } from "react-router-dom";
+import Modal from "../../modal/Modal.js";
+import NewClient from "./NewClient.js";
+import snakeize from "../../../utilities/snakeize";
 
 const Clients = ({ location }) => {
   const [loading, setLoading] = useState(true);
@@ -16,6 +18,7 @@ const Clients = ({ location }) => {
   const [listStyle, setListStyle] = useState("grid");
   const [q, setQ] = useState("");
   const [hasNextPage, setHasNextPage] = useState(true);
+  const [showClientModal, setShowClientModal] = useState(false);
 
   useEffect(() => {
     const CancelToken = axios.CancelToken;
@@ -88,16 +91,45 @@ const Clients = ({ location }) => {
     return listStyle === "grid" ? gridClients() : listClients();
   };
 
+  const handleCancel = () => {
+    setShowClientModal(false);
+  };
+
+  const createClient = async (client) => {
+    try {
+      const res = await api.post(
+        "/partners/customers",
+
+        {
+          customer: snakeize(client),
+        }
+      );
+      setClients((prevClients) => [res.data, ...prevClients]);
+      setShowClientModal(false);
+    } catch (e) {
+      throw e;
+    }
+  };
+
   return (
     <React.Fragment>
+      <Modal showClientModal={showClientModal}>
+        <NewClient handleCancel={handleCancel} createClient={createClient} />
+      </Modal>
       <section className="search-filter flex">
-        <Link
+        <div
           className="btn btn--sm btn--link new-client-link"
-          to={"/partner/clients/new"}
+          onClick={() => setShowClientModal(true)}
         >
           <FontAwesomeIcon icon="plus" />
           New Client
-        </Link>
+        </div>
+        <div
+          className={`new-client-accordion${showClientModal ? " show" : ""}`}
+          style={{ width: "22em" }}
+        >
+          <NewClient handleCancel={handleCancel} createClient={createClient} />
+        </div>
         <div className="filter-orientation">
           <div className="search-filter__input">
             <Input

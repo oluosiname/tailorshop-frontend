@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Form from "./Form";
-import api from "../../../api";
-import snakeize from "../../../utilities/snakeize";
 
-const NewClient = ({ history }) => {
+const NewClient = ({ history, handleCancel, createClient }) => {
   const fields = {
     firstName: "",
     lastName: "",
@@ -11,28 +9,17 @@ const NewClient = ({ history }) => {
     phoneNumber: "",
   };
 
-  const handleSubmit = async (client) => {
-    try {
-      await api.post(
-        "/partners/customers",
-
-        {
-          customer: snakeize(client),
-        }
-      );
-
-      history.push("/partner/clients");
-    } catch (e) {
-      throw e;
-    }
-  };
   return (
     <section className="card new-client-container">
       <div className="card__header">
         <div className="card__header__title">Add a new Customer</div>
       </div>
       <div className="card__body">
-        <Form handleSubmit={handleSubmit} fields={fields} />
+        <Form
+          handleSubmit={createClient}
+          fields={fields}
+          handleCancel={handleCancel}
+        />
       </div>
     </section>
   );
