@@ -14,7 +14,10 @@ const App = (props) => {
       <main>
         <section className="content">{props.children}</section>
       </main>
-      <div className={`overlay ${showSideBar ? "show" : ""}`}></div>
+      <div
+        className={`overlay ${showSideBar ? "show" : ""}`}
+        onClick={() => setshowSideBar(false)}
+      ></div>
     </div>
   );
 };
