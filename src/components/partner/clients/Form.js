@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Formik, Form as FormikForm, ErrorMessage, Field } from "formik";
+import { Formik, Form as FormikForm, ErrorMessage } from "formik";
 import { string, object, number } from "yup";
 import Input from "../../input/Input";
 import MySelect from "../../MySelect";
@@ -10,11 +10,12 @@ const genderOptions = [
   { value: "female", label: "Female" },
 ];
 
-const Form = ({ handleSubmit, fields }) => {
+const Form = ({ handleSubmit, fields, handleCancel }) => {
   const [formErrors, setFormErrors] = useState([]);
+
   let clientSchema = object().shape({
     firstName: string().required("Please enter client's first name"),
-    lastName: string().required("Please enter client's last name"),
+    lastName: string(),
     gender: string().required("Please select a gender"),
     phoneNumber: number()
       .typeError("Phone number should contain only numbers")
@@ -26,6 +27,11 @@ const Form = ({ handleSubmit, fields }) => {
       setFormErrors(err.response.data.errors);
       setSubmitting(false);
     });
+  };
+
+  const resetForm = () => {
+    setFormErrors([]);
+    handleCancel();
   };
 
   const displayFormErrors = () => {
@@ -121,6 +127,14 @@ const Form = ({ handleSubmit, fields }) => {
             className="btn btn--primary"
           >
             Save
+          </button>
+
+          <button
+            type="reset"
+            className="btn btn--danger m-left-2"
+            onClick={resetForm}
+          >
+            Cancel
           </button>
         </FormikForm>
       )}

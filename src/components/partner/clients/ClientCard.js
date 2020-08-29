@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { capitalize } from "../../../utilities/utilities";
 
 const ClientCard = ({ client }) => {
   return (
@@ -15,7 +16,7 @@ const ClientCard = ({ client }) => {
 
         <p className="client__name">
           {" "}
-          {client.first_name} {client.last_name}
+          {capitalize(client.first_name)} {capitalize(client.last_name)}
         </p>
 
         <div className="client__details">
