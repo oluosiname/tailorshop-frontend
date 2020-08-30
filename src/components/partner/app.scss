@@ -66,6 +66,8 @@
 
     .nav-link {
       color: $primary-color;
+      cursor: pointer;
+      position: relative;
 
       &:visited {
         color: $primary-color;
@@ -345,4 +347,49 @@ main {
     border-bottom-left-radius: 0;
     height: 100vh;
   }
+}
+
+.dropdown-menu {
+  transition: visibility 0s linear 0s, opacity 0.2s 0s;
+  visibility: hidden;
+  opacity: 1;
+  width: 13rem;
+  left: 0px;
+  top: 0;
+  position: absolute;
+  margin-top: 2.5rem;
+
+  &.show {
+    visibility: visible;
+  }
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 12px 24px;
+  clear: both;
+  font-weight: 400;
+  color: #1d2c48;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  text-transform: none;
+  cursor: pointer;
+
+  svg {
+    margin-right: 10px;
+  }
+
+  &:hover {
+    background-color: rgba(248, 248, 252, 0.5);
+  }
+}
+
+.dropdown-divider {
+  height: 0;
+
+  overflow: hidden;
+  border-top: 1px solid #f1f5fa;
 }

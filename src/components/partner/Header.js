@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
 import logo from "../../images/logo.png";
 
 const Header = ({ setshowSideBar, showSideBar }) => {
+  const [showDropDown, setShowDropDown] = useState(false);
   return (
     <React.Fragment>
       <div className="mobile-header">
@@ -49,7 +50,32 @@ const Header = ({ setshowSideBar, showSideBar }) => {
                 </NavLink>
               </li>
               <li className="nav-link">Portfolio</li>
-              <li className="nav-link not-mobile">Account</li>
+              <li
+                className="nav-link not-mobile"
+                onClick={() => setShowDropDown((prev) => !prev)}
+              >
+                Account
+                <ul
+                  className={`dropdown-menu dropdown-menu-right  card${
+                    showDropDown ? " show" : ""
+                  } `}
+                >
+                  <li className="dropdown-item">
+                    <FontAwesomeIcon icon="user" />
+                    Profile
+                  </li>
+                  <li className="dropdown-item">
+                    <FontAwesomeIcon icon="cog" />
+                    Settings
+                  </li>
+                  <div className="dropdown-divider mb-0"></div>
+                  <li className="dropdown-item">
+                    <FontAwesomeIcon icon="power-off" />
+                    Logout
+                  </li>
+                </ul>
+              </li>
+
               <li className="nav-link mobile">Profile</li>
               <li className="nav-link mobile">Settings</li>
               <li className="nav-link mobile">Sign Out</li>
