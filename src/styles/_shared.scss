@@ -211,6 +211,10 @@ a {
   color: $form-invalid;
 }
 
+.rounded-full {
+  border-radius: 50%;
+}
+
 @media (max-width: $breakpoint-tablet) {
   .grid {
     grid-template-columns: 1fr 1fr;

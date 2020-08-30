@@ -7,6 +7,8 @@ import "./fontawesome";
 import * as serviceWorker from "./serviceWorker";
 import PartnerProtectedRoute from "./PartnerProtectedRoute";
 import PartnerDashboard from "./components/partner/Dashboard";
+import PartnerDetails from "./components/partner/profile/Details";
+import PartnerChangePassword from "./components/partner/profile/ChangePassword";
 import Clients from "./components/partner/clients/Clients";
 import NewClient from "./components/partner/clients/NewClient";
 import Addresses from "./components/partner/Addresses/Addresses";
@@ -37,6 +39,14 @@ ReactDOM.render(
         <PartnerProtectedRoute
           path="/partner/clients/:client_id/addresses"
           component={Addresses}
+        />
+        <PartnerProtectedRoute
+          path="/partner/account/details"
+          component={PartnerDetails}
+        />
+        <PartnerProtectedRoute
+          path="/partner/account/change-password"
+          component={PartnerChangePassword}
         />
         <Route component={() => <h3>404</h3>} />
       </Switch>
