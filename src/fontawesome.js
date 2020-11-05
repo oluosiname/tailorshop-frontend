@@ -42,6 +42,8 @@ import {
   faCheckCircle,
   faCog,
   faUser,
+  faShareAlt,
+  faShare,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faQuestionCircle as faQuestionCircleRegular } from "@fortawesome/free-regular-svg-icons";
@@ -90,7 +92,9 @@ export default function registerIcons() {
     faCheck,
     faCheckCircle,
     faCog,
-    faUser
+    faUser,
+    faShareAlt,
+    faShare
 
     // more icons go here
   );

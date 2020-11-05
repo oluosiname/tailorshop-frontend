@@ -231,6 +231,99 @@ main {
   }
 }
 
+.dropdown-menu {
+  transition: visibility 0s linear 0s, opacity 0.2s 0s;
+  visibility: hidden;
+  opacity: 1;
+  width: 13rem;
+  left: 0px;
+  top: 0;
+  position: absolute;
+  margin-top: 2.5rem;
+
+  &.show {
+    visibility: visible;
+  }
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 12px 24px;
+  clear: both;
+  font-weight: 400;
+  color: #1d2c48;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  text-transform: none;
+  cursor: pointer;
+
+  svg {
+    margin-right: 10px;
+  }
+
+  &:hover {
+    background-color: rgba(248, 248, 252, 0.5);
+  }
+}
+
+.dropdown-divider {
+  height: 0;
+
+  overflow: hidden;
+  border-top: 1px solid #f1f5fa;
+}
+
+.profile {
+  section:nth-child(1) {
+    flex: 1;
+  }
+
+  section:nth-child(2) {
+    flex: 3;
+  }
+
+  &__nav {
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 0.375rem;
+    background-color: #fff;
+    height: fit-content;
+
+    &__header {
+      border-bottom: 1px solid #f4f4f5;
+      align-items: center;
+      padding: 12px 30px;
+      font-weight: 500;
+    }
+
+    &__items a {
+      padding: 0 25px;
+      color: #2d3748;
+      font-size: 14px;
+
+      &:hover,
+      &.active {
+        color: $dark-primary-color;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+
+  .addresses {
+    column-gap: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 @media (max-width: $breakpoint-tablet) {
   .content {
     flex-basis: 100%;
@@ -323,6 +416,59 @@ main {
     display: block;
     font-size: 1.5em;
   }
+
+  .profile {
+    flex-direction: column-reverse;
+
+    section:nth-child(1) {
+      flex: 1;
+    }
+
+    section:nth-child(2) {
+      flex: 3;
+    }
+
+    &__nav {
+      border-radius: 0;
+      bottom: 0;
+      box-shadow: 0 3px 20px rgba(0, 0, 0, 0.04);
+      height: auto;
+      min-height: 35px;
+      position: fixed;
+      width: 100%;
+      z-index: 4;
+      &__header {
+        display: none;
+      }
+
+      &__items {
+        display: flex;
+        padding-top: 0;
+        justify-content: space-between;
+        box-shadow: 0 3px 20px rgba(0, 0, 0, 0.04);
+        a {
+          margin-top: 25px;
+          &:hover,
+          &.active {
+            color: $dark-primary-color;
+            font-weight: 500;
+          }
+
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .card {
+      border: 0;
+      box-shadow: none;
+      &__header {
+        border-bottom: 0;
+      }
+    }
+  }
 }
 
 @media (max-width: $breakpoint-tablet-pro) {
@@ -346,91 +492,5 @@ main {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0;
     height: 100vh;
-  }
-}
-
-.dropdown-menu {
-  transition: visibility 0s linear 0s, opacity 0.2s 0s;
-  visibility: hidden;
-  opacity: 1;
-  width: 13rem;
-  left: 0px;
-  top: 0;
-  position: absolute;
-  margin-top: 2.5rem;
-
-  &.show {
-    visibility: visible;
-  }
-}
-
-.dropdown-item {
-  display: block;
-  width: 100%;
-  padding: 12px 24px;
-  clear: both;
-  font-weight: 400;
-  color: #1d2c48;
-  text-align: inherit;
-  white-space: nowrap;
-  background-color: transparent;
-  border: 0;
-  text-transform: none;
-  cursor: pointer;
-
-  svg {
-    margin-right: 10px;
-  }
-
-  &:hover {
-    background-color: rgba(248, 248, 252, 0.5);
-  }
-}
-
-.dropdown-divider {
-  height: 0;
-
-  overflow: hidden;
-  border-top: 1px solid #f1f5fa;
-}
-
-.profile {
-  section:nth-child(1) {
-    flex: 1;
-  }
-
-  section:nth-child(2) {
-    flex: 3;
-  }
-
-  &__nav {
-    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.04);
-    border-radius: 0.375rem;
-    height: fit-content;
-
-    &__header {
-      border-bottom: 1px solid #f4f4f5;
-      align-items: center;
-      padding: 12px 30px;
-      font-weight: 500;
-    }
-
-    &__items a {
-      padding: 0 25px;
-      color: #2d3748;
-      font-size: 14px;
-
-      &:hover,
-      &.active {
-        color: $dark-primary-color;
-        font-weight: 500;
-      }
-    }
-  }
-
-  .logo {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
   }
 }
