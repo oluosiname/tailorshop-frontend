@@ -123,7 +123,7 @@ const Clients = ({ location }) => {
 
   return (
     <React.Fragment>
-      <Modal showClientModal={showClientModal}>
+      <Modal showClientModal={showClientModal} title="">
         <NewClient handleCancel={handleCancel} createClient={createClient} />
       </Modal>
       <section className="search-filter flex">

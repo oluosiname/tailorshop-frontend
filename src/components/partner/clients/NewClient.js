@@ -1,5 +1,6 @@
 import React from "react";
 import Form from "./Form";
+import { string, number } from "yup";
 
 const NewClient = ({ history, handleCancel, createClient }) => {
   const fields = {
@@ -7,6 +8,15 @@ const NewClient = ({ history, handleCancel, createClient }) => {
     lastName: "",
     gender: "",
     phoneNumber: "",
+  };
+
+  const schema = {
+    firstName: string().required("Please enter client's first name"),
+    lastName: string(),
+    gender: string().required("Please select a gender"),
+    phoneNumber: number()
+      .typeError("Phone number should contain only numbers")
+      .required("Please enter client's phone number"),
   };
 
   return (
@@ -19,6 +29,7 @@ const NewClient = ({ history, handleCancel, createClient }) => {
           handleSubmit={createClient}
           fields={fields}
           handleCancel={handleCancel}
+          schema={schema}
         />
       </div>
     </section>

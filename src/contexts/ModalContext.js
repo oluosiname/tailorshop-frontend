@@ -10,7 +10,7 @@ let ModalProvider = ({ children }) => {
   return (
     <Provider value={{ modal, handleModal, modalContent }}>
       <Modal />
-      {children}
+      {/* {children} */}
     </Provider>
   );
 };

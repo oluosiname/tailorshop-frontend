@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Formik, Form as FormikForm, ErrorMessage } from "formik";
-import { string, object, number } from "yup";
+import { object } from "yup";
 import Input from "../../input/Input";
 import MySelect from "../../MySelect";
 
@@ -10,17 +10,10 @@ const genderOptions = [
   { value: "female", label: "Female" },
 ];
 
-const Form = ({ handleSubmit, fields, handleCancel }) => {
+const Form = ({ handleSubmit, fields, handleCancel, schema }) => {
   const [formErrors, setFormErrors] = useState([]);
 
-  let clientSchema = object().shape({
-    firstName: string().required("Please enter client's first name"),
-    lastName: string(),
-    gender: string().required("Please select a gender"),
-    phoneNumber: number()
-      .typeError("Phone number should contain only numbers")
-      .required("Please enter client's phone number"),
-  });
+  let validationSchema = object().shape(schema);
 
   const onSubmit = (values, { setSubmitting, resetForm }) => {
     handleSubmit(values)
@@ -52,7 +45,7 @@ const Form = ({ handleSubmit, fields, handleCancel }) => {
     <Formik
       initialValues={fields}
       onSubmit={onSubmit}
-      validationSchema={clientSchema}
+      validationSchema={validationSchema}
       validateOnChange={true}
       validateOnBlur={false}
     >

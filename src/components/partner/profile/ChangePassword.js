@@ -8,7 +8,7 @@ const ChangePassword = () => {
   const handleSubmit = () => {};
 
   return (
-    <React.Fragment>
+    <section className="card">
       <div className="card__header">
         <div className="card__header__title">Change Password</div>
       </div>
@@ -33,7 +33,7 @@ const ChangePassword = () => {
           Submit
         </button>
       </div>
-    </React.Fragment>
+    </section>
   );
 };
 

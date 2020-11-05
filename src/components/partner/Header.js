@@ -61,8 +61,15 @@ const Header = ({ setshowSideBar, showSideBar }) => {
                   } `}
                 >
                   <li className="dropdown-item">
-                    <FontAwesomeIcon icon="user" />
-                    Profile
+                    <NavLink
+                      exact
+                      to="/partner/account/details"
+                      className="nav-link"
+                      onClick={() => setshowSideBar(false)}
+                    >
+                      <FontAwesomeIcon icon="user" />
+                      Profile
+                    </NavLink>
                   </li>
                   <li className="dropdown-item">
                     <FontAwesomeIcon icon="cog" />
@@ -76,7 +83,17 @@ const Header = ({ setshowSideBar, showSideBar }) => {
                 </ul>
               </li>
 
-              <li className="nav-link mobile">Profile</li>
+              <li className="nav-link mobile">
+                {" "}
+                <NavLink
+                  exact
+                  to="/partner/account/details"
+                  className="nav-link"
+                  onClick={() => setshowSideBar(false)}
+                >
+                  Profile{" "}
+                </NavLink>
+              </li>
               <li className="nav-link mobile">Settings</li>
               <li className="nav-link mobile">Sign Out</li>
             </ul>

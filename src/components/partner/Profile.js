@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Profile = (props) => {
   return (
     <div className="flex profile">
-      <section className="profile__nav card m-right-3">
+      <section className="profile__nav  m-right-3">
         <div className="profile__nav__header flex ">
           <div className="">
             <img
@@ -17,17 +17,17 @@ const Profile = (props) => {
           <div className="font-medium text-base">Salfaton Place</div>
         </div>
         <div className="p-top-5 p-bottom-5 profile__nav__items">
-          <a className="flex" href="/">
+          <NavLink exact to="/partner/account/details" className="flex">
             <FontAwesomeIcon icon="user" className="m-right-2" />
-            Details
+            <span>Details</span>
+          </NavLink>
+          <a className="flex m-top-5" href="/">
+            <FontAwesomeIcon icon="share-alt" className="m-right-2" />
+            <span>Social Networks</span>
           </a>
           <a className="flex m-top-5" href="/">
             <FontAwesomeIcon icon="cog" className="m-right-2" />
-            Social Networks
-          </a>
-          <a className="flex m-top-5" href="/">
-            <FontAwesomeIcon icon="cog" className="m-right-2" />
-            Account Settings
+            <span>Account Settings</span>
           </a>
           <NavLink
             exact
@@ -35,16 +35,16 @@ const Profile = (props) => {
             className="flex m-top-5"
           >
             <FontAwesomeIcon icon="user" className="m-right-2" />
-            Change Password
+            <span>Change Password</span>
           </NavLink>
           <div className="dropdown-divider m-top-5"></div>
           <a className="flex m-top-5" href="/">
             <FontAwesomeIcon icon="trash" className="m-right-2" />
-            Delete Account
+            <span>Delete Account</span>
           </a>
         </div>
       </section>
-      <section className="card">{props.children}</section>
+      {props.children}
     </div>
   );
 };

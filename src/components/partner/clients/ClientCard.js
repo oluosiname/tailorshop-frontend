@@ -9,13 +9,6 @@ const ClientCard = ({ client }) => {
       {client && (
         <div className="client">
           <div className="client__info">
-            <div className="client__icon">
-              <img
-                src="http://odindesign-themes.com/vikinger/img/quest/openq-b.png"
-                alt="openq-b"
-              />
-            </div>
-
             <p className="client__name" data-testid="client-name">
               {" "}
               {capitalize(client.first_name)} {capitalize(client.last_name)}

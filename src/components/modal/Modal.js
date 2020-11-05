@@ -12,7 +12,7 @@ const Modal = (props) => {
       <div className="modal__content">
         <div className="text-center">
           <i className="far fa-times-circle"></i>
-          <p>Are you sure you want to delete this record?</p>
+          <p>{props.title}</p>
         </div>
         {props.children}
       </div>
